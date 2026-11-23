@@ -1,0 +1,3 @@
+# Dependência opcional exclusivamente para a extensão de assinatura digital Ed25519 (Seção 9).
+# O núcleo obrigatório (blockchain.py, demo.py e testes obrigatórios) usa APENAS a biblioteca padrão do Python 3.10+.
+cryptography>=41.0.0

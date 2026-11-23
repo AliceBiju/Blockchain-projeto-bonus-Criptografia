@@ -1,0 +1,19 @@
+# Byte-compiled / cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+env/
+
+# Arquivos temporários da CLI (gerados em testes manuais)
+cadeia_academica.json
+
+# Arquivos de sistema / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
