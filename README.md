@@ -1,4 +1,4 @@
-# Projeto Bônus — Blockchain Didática (Introdução à Criptografia)
+# Projeto Bônus - Blockchain Didática (Introdução à Criptografia)
 
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 ![SHA-256](https://img.shields.io/badge/Hash-SHA--256-success.svg)
@@ -7,12 +7,12 @@
 
 Implementação completa, documentada e testada de uma **blockchain local didática** em Python 3 para o registro de eventos acadêmicos fictícios (matrículas, conclusões de disciplinas, atas de defesa e emissão de certificados), desenvolvida como **Projeto Bônus** da disciplina de **Introdução à Criptografia**.
 
-> **⚠️ Limite de Segurança e Aviso Educacional:**  
+> **Limite de Segurança e Aviso Educacional:**  
 > Este projeto é **exclusivamente educacional e local**. Não cria criptomoeda, carteira, ativo financeiro ou rede P2P segura. Uma lista local de blocos em memória ou arquivo JSON não oferece consenso distribuído nem imutabilidade absoluta contra um controlador local único sem uma âncora externa confiável. Utilize apenas **dados e pseudônimos fictícios** (`aluno-017`), pois funções de hash públicas não cifram registros nem anonimizam nomes, documentos ou notas previsíveis.
 
 ---
 
-## 📁 Estrutura do Repositório (Entregáveis e Extensões)
+## Estrutura do Repositório (Entregáveis e Extensões)
 
 ```text
 projeto-bonus-cripto/
@@ -20,7 +20,6 @@ projeto-bonus-cripto/
 ├── demo.py                  # [Entregável Obrigatório] As 5 situações da demonstração e ataque controlado
 ├── test_blockchain.py       # [Entregável Obrigatório] 18 testes automatizados (12 requisitos + extensões)
 ├── README.md                # [Entregável Obrigatório] Documentação completa, arquitetura e instruções
-├── relatorio_tecnico.docx   # [Relatório Editável] Relatório técnico formatado em Word (.docx) para edição
 ├── relatorio_tecnico.pdf    # [Entregável Obrigatório] Relatório técnico (3 páginas diagramadas em PDF)
 ├── extensoes.py             # [Seção 9] Merkle Tree, Ed25519, Persistência JSON, 2 Nós e Estatísticas
 ├── cli.py                   # [Seção 9] Interface de Linha de Comando (CLI) para gerenciar a cadeia
@@ -31,7 +30,7 @@ projeto-bonus-cripto/
 
 ---
 
-## 🏗️ Arquitetura e Modelo de Dados (Rubrica — Critério 1)
+## Arquitetura e Modelo de Dados (Rubrica — Critério 1)
 
 ### Diagrama de Fluxo da Arquitetura
 
@@ -79,7 +78,7 @@ flowchart LR
 
 ---
 
-## 🧰 Explicação das Bibliotecas, Funções e Métodos (Seção 2)
+## Explicação das Bibliotecas, Funções e Métodos (Seção 2)
 
 O núcleo do projeto (`blockchain.py`, `demo.py` e os testes principais em `test_blockchain.py`) utiliza **exclusivamente a biblioteca padrão do Python 3.10+**:
 
@@ -97,7 +96,7 @@ O núcleo do projeto (`blockchain.py`, `demo.py` e os testes principais em `test
 
 ---
 
-## 🔬 Registro da Etapa 0 — Hipóteses e Mapeamento de TODOs
+## Registro da Etapa 0 - Hipóteses e Mapeamento de TODOs
 
 Na **Etapa 0**, antes da implementação das funções no esqueleto inicial (`codigo_inicial/`), a execução de `python -m unittest -v` falha com `NotImplementedError` nos pontos marcados com `TODO`. A tabela abaixo registra a relação direta entre cada falha inicial, o `TODO` correspondente e a solução implementada:
 
@@ -115,7 +114,7 @@ Na **Etapa 0**, antes da implementação das funções no esqueleto inicial (`co
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 * **Python 3.10 ou superior** (não é necessário instalar nenhum pacote externo para executar `blockchain.py`, `demo.py`, `cli.py` ou os testes obrigatórios de `test_blockchain.py`).
@@ -169,31 +168,11 @@ python cli.py benchmark --amostras 8
 ### 4. Relatório Técnico (Seção 6 e 7)
 
 O relatório técnico respondendo detalhadamente às 9 questões obrigatórias da Seção 6 está disponível na raiz do repositório em dois formatos:
-* [relatorio_tecnico.docx](relatorio_tecnico.docx) (versão editável em Microsoft Word)
-* [relatorio_tecnico.pdf](relatorio_tecnico.pdf) (versão diagramada de 3 páginas pronta para entrega em PDF)
+* [relatorio_tecnico.pdf](relatorio_tecnico.pdf)
 
 ---
 
-## 🎤 Roteiro Sugerido para a Apresentação (6 a 10 minutos)
-
-Para cumprir a exigência de participação de todos os integrantes e realização de uma pequena alteração ao vivo (Seções 5, 7 e 10):
-
-1. **Minutos 0–2 (Modelo de Dados, Serialização Canônica e SHA-256):**
-   * Mostrar `serializar_canonico`, `criar_registro` e `Bloco.conteudo_para_hash` em `blockchain.py`.
-   * Explicar por que o campo `hash` fica fora de `conteudo_para_hash` e como `sort_keys=True` e `separators=(",", ":")` garantem determinismo.
-2. **Minutos 2–4 (Bloco Gênese, Prova de Trabalho e Inclusão de Blocos):**
-   * Explicar `Bloco.minerar()`, `Blockchain.__init__()` e `Blockchain.adicionar_bloco()`.
-   * Mostrar por que `copy.deepcopy` impede mutação externa silenciosa e por que cada zero hexadecimal adicional multiplica as tentativas por 16 ($2^4 = 16$).
-3. **Minutos 4–7 (Execução Ao Vivo de `demo.py` e `test_blockchain.py`):**
-   * Executar `python demo.py` e percorrer as Situações 1 a 5 no terminal.
-   * Executar `python -m unittest -v` mostrando os 18 testes passando.
-   * **Pequena alteração ao vivo (Seção 10):** Alterar uma descrição ou dificuldade em `demo.py` ou criar um teste rápido em `test_blockchain.py` e rodar novamente para demonstrar domínio completo do código.
-4. **Minutos 7–9 (Análise Crítica e Limites de Segurança):**
-   * Explicar por que a Situação 4 reconstrói a cadeia local, o papel da **âncora externa confiável**, a diferença entre integridade e confidencialidade (por que hash não anonimiza dados previsíveis) e por que um banco de dados assinado digitalmente é mais simples para uma instituição única.
-
----
-
-## 📜 Declaração de Fontes, Ferramentas e Integridade Acadêmica (Seção 10)
+## Declaração de Fontes, Ferramentas e Integridade Acadêmica (Seção 10)
 
 Em conformidade com as diretrizes de integridade acadêmica da Seção 10 do caderno do projeto:
 
@@ -203,6 +182,6 @@ Em conformidade com as diretrizes de integridade acadêmica da Seção 10 do cad
    * FIPS PUB 180-4 (*Secure Hash Standard — SHA-256*) e RFC 8259 (*The JavaScript Object Notation Data Interchange Format*).
    * Documentação da biblioteca `cryptography` (`cryptography.hazmat.primitives.asymmetric.ed25519`), utilizada exclusivamente na extensão opcional de assinatura digital Ed25519 da Seção 9.
 2. **Declaração de Uso de Inteligência Artificial:**
-   * Ferramentas de assistência por inteligência artificial (Antigravity / Gemini) foram utilizadas como apoio na estruturação da documentação, revisão de tipagem estática, geração de casos de teste automatizados e diagramação do relatório em PDF. Todo o código-fonte, a lógica de validação criptográfica, os experimentos de dificuldade e as respostas conceituais foram verificados, testados e validados para garantir compreensão integral de cada linha entregue.
+   * Ferramentas de assistência por inteligência artificial (GPT/Gemini) foram utilizadas como apoio na estruturação da documentação, revisão de tipagem estática e no auxílio da escrita do relatório em PDF. Todo o código-fonte, a lógica de validação criptográfica e as respostas conceituais foram verificados, testados e validados para garantir compreensão integral de cada linha entregue.
 3. **Segurança dos Dados:**
    * Todos os registros, identificadores (`aluno-017`, `aluno-042`, `aluno-089`, `sistema-000`) e eventos utilizados no código, nos testes e na demonstração são **100% fictícios**. Nenhuma biblioteca pronta de blockchain foi utilizada.
